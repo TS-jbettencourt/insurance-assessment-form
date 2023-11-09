@@ -93,7 +93,7 @@ export default {
         {
           id: 1,
           value: null,
-          label: "Are you at least age 21?",
+          label: "Are you age 21 or older?",
           type: "radio",
           options: [
             {
