@@ -40,7 +40,7 @@
         </b-list-group-item>
       </draggable>
     </b-container>
-    <b-container fluid class="no-print mt-4" v-if="!isPrintPreview">
+    <b-container fluid class="no-print mt-4 mb-4" v-if="!isPrintPreview">
       <b-row>
         <b-col sm="3" class="fixed-label mt-2">
           <label for="addQuestion">Add a question:</label>
@@ -58,14 +58,14 @@
     <div class="no-print m-3" v-show="!isPrintPreview">
       <b-button
         type="submit"
-        class="mr-2"
+        class="mr-2 mb-2"
         variant="primary"
         :disabled="validateForm"
         >Calculate Average</b-button
       >
-      <b-button class="mr-2" @click="printPreview">Print Preview</b-button>
-      <b-button class="mr-2" @click="printPage">Print</b-button>
-      <b-button variant="danger" v-b-modal.modal-reset>Reset Form</b-button>
+      <b-button class="mr-2 mb-2" @click="printPreview">Print Preview</b-button>
+      <b-button class="mr-2 mb-2" @click="printPage">Print</b-button>
+      <b-button class="mr-2 mb-2" variant="danger" v-b-modal.modal-reset>Reset Form</b-button>
       <b-modal id="modal-reset" title="Confirm Reset" @ok="resetForm">
         <p>Really reset the form? This will remove all questions and answers you have added.</p>
       </b-modal>
@@ -211,7 +211,7 @@ div.reorder-col {
   max-width:50px;
 }
 .reorder:hover {
-  cursor: pointer;
+  cursor: move;
 }
 div.delete-col {
   max-width:100px;
