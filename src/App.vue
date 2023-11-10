@@ -394,11 +394,13 @@ export default {
 
 .printable-form {
   font-family:'Open Sans';
+  color:#000;
   max-width:1080px;
   position:relative;
 }
 .modal-dialog {
   font-family:'Open Sans';
+  color:#000;
 }
 .logo {
   position:absolute;
@@ -409,7 +411,7 @@ export default {
 h1.h1 {
   font-family: 'Bebas Neue';
   font-size: 40px;
-  color: grey;
+  color: #777;
   line-height: 1;
   margin-right:250px;
 }
@@ -496,13 +498,13 @@ div.comment-label-result.show {
   font-size:12px;
 }
 .answer {
-  color:grey;
+  color:#777;
 }
 .green span {
-  color:green;
+  color:#05A454;
 }
 .red span {
-  color:red;
+  color:#ef4265;
 }
 .question-text {
   font-size:16px;
@@ -516,7 +518,7 @@ div.comment-label {
 .comment-label-result {
   background-color:rgba(0, 0, 0, 0.05);
   font-size:16px;
-  color:grey;
+  color:#777;
 
 } 
 .list-group-item:nth-of-type(even) .comment-label-result {
