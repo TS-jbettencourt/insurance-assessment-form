@@ -13,20 +13,20 @@
           <label for="dateConductedField">Conducted on:</label>
         </b-col>
         <b-col sm="9">
-          <b-form-datepicker v-if="!isPrintPreview" class="user-input no-print" id="dateConductedField" v-model="dateConductedOn" />
+          <b-form-datepicker v-if="!isPrintPreview" class="user-input no-print mb-3" id="dateConductedField" v-model="dateConductedOn" />
           <div :class="['user-input-results mt-2 print', { 'show': isPrintPreview }]">{{ dateConductedOn }}</div> 
         </b-col>
       </b-row>
-      <b-row class="mt-3">
+      <b-row>
         <b-col sm="3" class="user-label mt-2 font-weight-bold">
           <label for="dateAcceptedField">Date Accepted:</label>
         </b-col>
         <b-col sm="9">
-          <b-form-datepicker v-if="!isPrintPreview" class="user-input no-print" id="dateAcceptedField" v-model="dateAccepted" />
+          <b-form-datepicker v-if="!isPrintPreview" class="user-input no-print mb-3" id="dateAcceptedField" v-model="dateAccepted" />
           <div :class="['user-input-results mt-2 print', { 'show': isPrintPreview }]">{{ dateAccepted }}</div>
         </b-col>
       </b-row>
-      <b-row class="mt-3">
+      <b-row>
         <b-col sm="3" class="user-label mt-2 font-weight-bold">
           <label for="reviewerNameField">Reviewer Name:</label>
         </b-col>
@@ -44,12 +44,12 @@
     <div class="no-print p-3 mt-5" v-if="!isPrintPreview">Please answer all questions below (drag to reorder):</div>
     <b-container class="my-5" fluid v-for="s of sections" :key="s.sectionId">
       <h3 class="mt-5">
-        <span class="mr-2">{{ s.sectionLabel }}</span>
+        <span class="mr-3">{{ s.sectionLabel }}</span>
         <span class="no-print mr-2" v-b-modal="'modal-section-rename-' + s.sectionId" v-if="!isPrintPreview">
-          <b-icon class="section-edit" icon="pencil-fill"></b-icon>
+          <b-icon class="section-btn" icon="pencil-fill" title="Edit Section"></b-icon>
         </span>
         <span class="no-print" v-b-modal="'modal-section-delete-' + s.sectionId" v-if="!isPrintPreview">
-          <b-icon class="section-edit" icon="trash-fill"></b-icon>
+          <b-icon class="section-btn" icon="trash-fill" title="Delete Section"></b-icon>
         </span>
       </h3>
       <b-modal :id="'modal-section-rename-' + s.sectionId" title="Rename Section" @ok="renameSection(s.sectionId)">
@@ -95,7 +95,9 @@
                     </b-col>
                   </b-row>
                   <b-row :class="['comment-label-result font-weight-normal', { 'show': isPrintPreview }]">
-                    <b-col>{{ q.comment }}</b-col>
+                    <b-col>
+                      {{ q.comment }}
+                    </b-col>
                   </b-row>
                 </b-container>
               </b-form-group>
@@ -387,9 +389,16 @@ export default {
 </script>
 
 <style>
+@import url(https://fonts.googleapis.com/css?family=Bebas+Neue:regular);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,regular,500,600,700,800,300italic,italic,500italic,600italic,700italic,800italic);
+
 .printable-form {
+  font-family:'Open Sans';
   max-width:1080px;
   position:relative;
+}
+.modal-dialog {
+  font-family:'Open Sans';
 }
 .logo {
   position:absolute;
@@ -398,16 +407,16 @@ export default {
   margin-right:30px;
 }
 h1.h1 {
-  font-family: Arial Narrow;
-  font-size: 28px;
+  font-family: 'Bebas Neue';
+  font-size: 40px;
   color: grey;
-  font-weight: bold;
+  line-height: 1;
   margin-right:250px;
 }
 h2.h2 {
-  font-family: Arial Narrow;
-  font-size: 48px;
-  font-weight: bold;
+  font-family: 'Bebas Neue';
+  font-size: 60px;
+  line-height: 1;
   margin-right:250px;
 }
 div.user-label {
@@ -417,7 +426,7 @@ input.user-input,
 div.user-input {
   max-width:300px;
 }
-.section-edit:hover {
+.section-btn:hover {
   cursor:pointer;
 }
 div.fixed-label {
@@ -496,7 +505,7 @@ div.comment-label-result.show {
   color:red;
 }
 .question-text {
-  font-size:18px;
+  font-size:16px;
 }
 div.comment-label {
   font-size:16px;
@@ -508,6 +517,7 @@ div.comment-label {
   background-color:rgba(0, 0, 0, 0.05);
   font-size:16px;
   color:grey;
+
 } 
 .list-group-item:nth-of-type(even) .comment-label-result {
   background-color: #fff;
