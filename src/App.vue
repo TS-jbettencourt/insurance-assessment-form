@@ -64,12 +64,12 @@
           <b-row>
             <b-col :class="[ 'reorder-col', { 'reorder-wide' : isPrintPreview} ]" sm="1">
               <div class="reorder mb-2 no-print" v-if="!isPrintPreview">
-                <b-icon icon="list"></b-icon>
+                <b-icon icon="list" title="Drag to Reorder Question"></b-icon>
               </div>
               <div :class="[ 'answer font-weight-bold print', 
                 {'show': isPrintPreview, 'green': q.value == 1, 'red' : q.value == 0  } ]" sm="1">
                 <span class="result-icon">
-                  <b-icon :icon="q.value == 1 || q.value == 0 ? 'square-fill' : 'slash-square'"></b-icon>
+                  <b-icon :icon="q.value == 1 || q.value == 0 ? 'square-fill' : 'slash-square'" title="Answer Icon"></b-icon>
                 </span>
                 <span class="result">
                   {{q.value == 1 ? "Yes" : q.value == 0 ? "No" : "No Answer" }}
