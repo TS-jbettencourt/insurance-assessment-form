@@ -43,7 +43,7 @@
     </div>
     <div class="no-print p-3 mt-5" v-if="!isPrintPreview">Please answer all questions below (drag to reorder):</div>
     <b-container class="my-5" fluid v-for="s of sections" :key="s.sectionId">
-      <h3 class="mt-5">
+      <h3 class="h3 mt-5">
         <span class="mr-3">{{ s.sectionLabel }}</span>
         <span class="no-print mr-2" v-b-modal="'modal-section-rename-' + s.sectionId" v-if="!isPrintPreview">
           <b-icon class="section-btn" icon="pencil-fill" title="Edit Section"></b-icon>
@@ -114,8 +114,8 @@
       </draggable>
     </b-container>
     <b-container fluid class="no-print mt-5 mb-5" v-if="!isPrintPreview">
-      <h4 class="mb-4">Edit Form Fields</h4>
-      <b-row>
+      <h4 class="h4 mb-4">Edit Form Fields</h4>
+      <b-row class="mb-4">
         <b-col sm="3" class="fixed-label mt-2">
           <label for="addSection">Add a section:</label>
         </b-col>
@@ -529,6 +529,25 @@ div.comment-label {
 } 
 .list-group-item:nth-of-type(even) .comment-label-result {
   background-color: #fff;
+}
+@media screen and (max-width: 768px) {
+  h1.h1 {
+    font-size:24px;
+    margin-right:0;
+  }
+  h2.h2 {
+    font-size:32px;
+    margin-right:0;
+  }
+  h3.h3 {
+    font-size:20px;
+  }
+  h4.h4 {
+    font-size:18px;
+  }
+  .logo {
+    position: relative;
+  }
 }
 @media print {
   div.user-input.no-print,
