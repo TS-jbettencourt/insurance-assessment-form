@@ -59,11 +59,11 @@
       <b-modal :id="'modal-section-delete-' + s.sectionId" title="Delete Section" @ok="deleteSection(s.sectionId)">
         <p>Really delete this section?</p>
       </b-modal>
-      <draggable v-model="s.questions" tag="div" class="question-container" :options="{group: 'sections'}">
+      <draggable v-model="s.questions" tag="div" class="question-container" :options="{group: 'sections'}" handle=".handle">
         <b-list-group-item v-for="q of s.questions" :key="q.id">
           <b-row>
             <b-col :class="[ 'reorder-col', { 'reorder-wide' : isPrintPreview} ]" sm="1">
-              <div class="reorder mb-2 no-print" v-if="!isPrintPreview">
+              <div class="reorder handle mb-2 no-print" v-if="!isPrintPreview">
                 <b-icon icon="list" title="Drag to Reorder Question"></b-icon>
               </div>
               <div :class="[ 'answer font-weight-bold print', 
@@ -278,6 +278,12 @@ export default {
       ],
       dragging: false,
     };
+  },
+  metaInfo: {
+    meta: [
+      { charset: 'utf-8' },
+      { name: 'viewport', content: 'width=device-width, initial-scale=1' }
+    ]
   },
   methods: {
     renameSection(sectionId) {
